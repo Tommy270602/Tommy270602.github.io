@@ -1,10 +1,36 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
+
+  /* Default light theme */
+  body {
     background-color: #f9f9f9;
     color: #333;
+    transition: background-color 0.3s, color 0.3s;
   }
   
+  .dark-mode {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+  }
+  
+  .toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .theme-button {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .theme-button:hover {
+    transform: rotate(20deg);
+  }
+  
+
   header, section, footer {
     padding: 40px 20px;
   }
