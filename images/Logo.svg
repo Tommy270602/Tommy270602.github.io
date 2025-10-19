@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="240" height="240" aria-labelledby="title desc" role="img">
+  <title id="title">Logo</title>
+
+  <!-- Glow filter -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Neon gradient for strokes -->
+    <linearGradient id="neonGradient" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#00ffff"/>
+      <stop offset="0.5" stop-color="#ff00ff"/>
+      <stop offset="1" stop-color="#ffff00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background (transparent area for embedding on colored cards) -->
+  <rect width="120" height="120" fill="none"/>
+
+  <!-- Shield base -->
+  <path d="M60 12 L28 26 v22 c0 22 18 40 32 44 14-4 32-22 32-44 V26 Z"
+        fill="rgba(0,0,0,0.5)"
+        stroke="url(#neonGradient)"
+        stroke-width="2.2"
+        stroke-linejoin="round"
+        filter="url(#glow)"/>
+
+  <!-- Inner shield highlight -->
+  <path d="M60 18 L34 30 v18 c0 18 14 34 26 38 12-4 26-20 26-38 V30 Z"
+        fill="none"
+        stroke="#ffffff20"
+        stroke-width="1"/>
+
+  <!-- Padlock body -->
+  <rect x="44" y="46" rx="3" ry="3" width="32" height="22" fill="#000000aa" stroke="url(#neonGradient)" stroke-width="1.6" filter="url(#glow)"/>
+
+  <!-- Padlock shackle -->
+  <path d="M56 46 v-6 a8 8 0 0 1 16 0 v6"
+        fill="none"
+        stroke="url(#neonGradient)"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        filter="url(#glow)"/>
+
+  <!-- Keyhole -->
+  <circle cx="60" cy="57" r="2.6" fill="#000" />
+  <rect x="59.2" y="59" width="1.6" height="4" rx="0.6" fill="#000" />
+
+  <!-- Circuit traces (left) -->
+  <line x1="18" y1="40" x2="34" y2="40" stroke="#00ffff" stroke-width="1" opacity="0.85" />
+  <circle cx="18" cy="40" r="2.2" fill="#00ffff"/>
+  <circle cx="34" cy="40" r="1.6" fill="#ff00ff"/>
+
+  <line x1="18" y1="80" x2="34" y2="66" stroke="#ff00ff" stroke-width="1" opacity="0.85" />
+  <circle cx="18" cy="80" r="2.2" fill="#ff00ff"/>
+  <circle cx="34" cy="66" r="1.6" fill="#ffff00"/>
+
+  <!-- Circuit traces (right) -->
+  <line x1="102" y1="40" x2="86" y2="40" stroke="#00ffff" stroke-width="1" opacity="0.85" />
+  <circle cx="102" cy="40" r="2.2" fill="#00ffff"/>
+  <circle cx="86" cy="40" r="1.6" fill="#ff00ff"/>
+
+  <line x1="102" y1="80" x2="86" y2="66" stroke="#ff00ff" stroke-width="1" opacity="0.85" />
+  <circle cx="102" cy="80" r="2.2" fill="#ff00ff"/>
+  <circle cx="86" cy="66" r="1.6" fill="#ffff00"/>
+
+  <!-- Subtle cross-connections (inside shield) -->
+  <line x1="46" y1="32" x2="58" y2="44" stroke="#00ffff" stroke-width="0.9" opacity="0.6"/>
+  <line x1="74" y1="32" x2="62" y2="44" stroke="#ff00ff" stroke-width="0.9" opacity="0.6"/>
+
+  <!-- Central accent dot -->
+  <circle cx="60" cy="36" r="1.6" fill="#00ffff" filter="url(#glow)"/>
+
+</svg>
