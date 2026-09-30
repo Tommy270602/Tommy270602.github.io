@@ -25,22 +25,23 @@ a{color:inherit;text-decoration:none}
 /* nav */
 nav{position:absolute;top:0;left:0;right:0;z-index:5}
 nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:1.75rem}
-.seal{width:2.5rem;height:2.5rem;background:var(--indigo);color:var(--paper);display:grid;place-items:center;font:500 .95rem 'Shippori Mincho',serif;filter:url(#seal)}
+.seal{display:block;width:2.5rem;height:2.5rem}
+.seal svg{display:block;width:100%;height:100%;overflow:visible}
 nav ul{display:flex;gap:clamp(1rem,3vw,1.9rem);list-style:none;font-size:.95rem}
 
 /* hero */
-.hero{min-height:100svh;position:relative;display:flex;align-items:center;overflow:hidden}
-.hero .wrap{position:relative;z-index:2;width:100%;padding-top:5rem}
-h1{font-weight:500;font-size:clamp(3.4rem,11.5vw,9.5rem);line-height:.95;letter-spacing:-.02em}
+.hero{min-height:100vh;min-height:100svh;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero .wrap{position:relative;z-index:2;width:100%;max-width:1240px;padding-top:5rem;padding-bottom:3rem;display:grid;grid-template-columns:minmax(0,1fr) clamp(260px,34vw,460px);gap:2rem;align-items:center}
+h1{font-weight:500;font-size:clamp(3rem,min(9vw,7.6rem),7.6rem);line-height:.95;letter-spacing:-.02em}
 h1 span{display:block}
 h1 span+span{margin-left:.55em}
-.lede{max-width:32ch;margin-top:2.2rem;font-size:1.2rem;color:var(--soft)}
-.enso{position:absolute;right:-9vw;top:50%;width:min(70vw,740px);transform:translateY(-50%) rotate(-18deg);color:var(--ink);z-index:1;overflow:visible}
-.enso path{fill:none;stroke:currentColor;stroke-linecap:round;stroke-dasharray:1;animation:draw 3s cubic-bezier(.55,.1,.2,1) .25s backwards}
+.lede{max-width:32ch;margin-top:2rem;font-size:1.2rem;color:var(--soft)}
+.enso{width:100%;height:auto;aspect-ratio:1;transform:rotate(-18deg);color:var(--ink);overflow:visible}
+.enso path{fill:none;stroke:currentColor;stroke-linecap:round;stroke-dasharray:1200;animation:draw 3s cubic-bezier(.55,.1,.2,1) .25s backwards}
 .enso path+path{animation-delay:.5s;animation-duration:3.2s}
-@keyframes draw{from{stroke-dashoffset:1}}
+@keyframes draw{from{stroke-dashoffset:1200}}
 .blots{position:absolute;inset:0;width:100%;height:100%;color:var(--ink);pointer-events:none}
-.side{position:absolute;right:1.4rem;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-size:.82rem;letter-spacing:.14em;color:var(--soft);z-index:2}
+.side{position:absolute;right:.5rem;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-size:.82rem;letter-spacing:.14em;color:var(--soft)}
 
 /* sections */
 section{padding:clamp(4rem,10vw,8rem) 0}
@@ -48,19 +49,30 @@ section{padding:clamp(4rem,10vw,8rem) 0}
 h2{font-weight:500;font-size:1.65rem;line-height:1.2}
 .text{max-width:58ch}
 .text p+p{margin-top:1.1rem}
-.brush{display:block;width:100%;height:14px;color:var(--ink);opacity:.85}
+.brush{display:block;overflow:visible;width:100%;height:14px;color:var(--ink);opacity:.85}
 .tl{display:grid;grid-template-columns:8.5rem 1fr;gap:1.7rem 1.5rem;max-width:62ch}
 dt{color:var(--soft);font-size:.95rem;padding-top:.2rem}
 dd strong{display:block;font-weight:500;font-size:1.2rem;line-height:1.35}
 dd span{color:var(--soft)}
 .contact{display:flex;flex-direction:column;align-items:flex-start;gap:.4rem;margin-top:1.6rem}
 .contact a{font-size:clamp(1.8rem,4.5vw,2.8rem);line-height:1.25}
+.badges{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:2.5rem 2rem;margin-top:2.2rem}
+.badges .disc,.badges img{display:block;width:5.5rem;height:5.5rem;margin-bottom:1rem;object-fit:contain}
+.badges .disc{color:var(--ink)}
+.badges .disc svg{width:100%;height:100%}
+.badges h3{font:500 1.15rem/1.35 'Shippori Mincho','Hiragino Mincho ProN','Yu Mincho',Georgia,serif}
+.badges p{color:var(--soft);font-size:.95rem}
+.badges a{display:inline-block;margin-top:.6rem;font-size:.95rem}
 footer{padding:2.5rem 0 3rem;color:var(--soft);font-size:.9rem}
 
 @media(max-width:900px){.side{display:none}}
 @media(max-width:720px){
   .grid{grid-template-columns:1fr}
-  .enso{opacity:.13;right:-38vw;width:125vw}
+  nav .wrap{flex-wrap:wrap;gap:.75rem}
+  nav ul{font-size:.85rem;gap:.75rem}
+  .seal{width:2.2rem;height:2.2rem}
+  .hero .wrap{display:block}
+  .enso{position:absolute;z-index:-1;top:50%;right:-38vw;width:125vw;transform:translateY(-50%) rotate(-18deg);opacity:.13}
   .tl{grid-template-columns:1fr;gap:.1rem}
   dd{margin-bottom:1.5rem}
 }
@@ -69,20 +81,22 @@ footer{padding:2.5rem 0 3rem;color:var(--soft);font-size:.9rem}
 </head>
 <body>
 
-<!-- Ink filters: rough = dry brush edge, bleed = spreading stain, seal = worn stamp -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="16"/></filter>
-  <filter id="bleed" x="-60%" y="-60%" width="220%" height="220%"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="46" result="d"/><feGaussianBlur in="d" stdDeviation="2"/></filter>
-  <filter id="seal" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter>
+<!-- Ink filters: rough = dry brush edge, brush = thin strokes, bleed = spreading stain, seal = worn stamp -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+  <filter id="rough" color-interpolation-filters="sRGB" x="-15%" y="-15%" width="130%" height="130%"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="16"/></filter>
+  <filter id="brush" color-interpolation-filters="sRGB" x="-2%" y="-500%" width="104%" height="1100%"><feTurbulence type="fractalNoise" baseFrequency="0.02 0.2" numOctaves="3" seed="5" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="6"/></filter>
+  <filter id="bleed" color-interpolation-filters="sRGB" x="-60%" y="-60%" width="220%" height="220%"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="46" result="d"/><feGaussianBlur in="d" stdDeviation="2"/></filter>
+  <filter id="seal" color-interpolation-filters="sRGB" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter>
 </svg>
 
 <nav>
   <div class="wrap">
-    <a class="seal" href="#top" aria-label="Tommaso Danieli, home">TD</a>
+    <a class="seal" href="#top" aria-label="Tommaso Danieli, home"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" style="fill:var(--indigo)" filter="url(#seal)"/><text x="20" y="26" text-anchor="middle" style="fill:var(--paper)" font-family="'Shippori Mincho',Georgia,serif" font-size="16" font-weight="500">TD</text></svg></a>
     <ul>
       <li><a class="lk" href="#about">About</a></li>
       <li><a class="lk" href="#research">Research</a></li>
       <li><a class="lk" href="#path">Path</a></li>
+      <li><a class="lk" href="#badges">Badges</a></li>
       <li><a class="lk" href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -99,25 +113,25 @@ footer{padding:2.5rem 0 3rem;color:var(--soft);font-size:.9rem}
     </g>
   </svg>
 
-  <svg class="enso" viewBox="0 0 500 500" aria-hidden="true">
-    <g filter="url(#rough)">
-      <path d="M318.4 62 A200 200 0 1 1 181.6 62" pathLength="1" stroke-width="26"/>
-      <path d="M321.1 54.5 A208 208 0 1 1 178.9 54.5" pathLength="1" stroke-width="5" opacity=".55"/>
-    </g>
-  </svg>
-
-  <div class="side" aria-hidden="true">Cybersecurity and machine learning</div>
-
   <div class="wrap">
-    <h1><span>Tommaso</span><span>Danieli</span></h1>
-    <p class="lede">Cybersecurity specialist and researcher, working on continual learning for gait and human activity recognition.</p>
+    <div class="side" aria-hidden="true">Cybersecurity and machine learning</div>
+    <div class="intro">
+      <h1><span>Tommaso</span><span>Danieli</span></h1>
+      <p class="lede">Cybersecurity specialist and researcher, working on continual learning for gait and human activity recognition.</p>
+    </div>
+    <svg class="enso" viewBox="0 0 500 500" aria-hidden="true">
+      <g filter="url(#rough)">
+        <path d="M318.4 62 A200 200 0 1 1 181.6 62" stroke-width="26"/>
+        <path d="M321.1 54.5 A208 208 0 1 1 178.9 54.5" stroke-width="5" opacity=".55"/>
+      </g>
+    </svg>
   </div>
 </header>
 
 <main>
 <section id="about">
   <div class="wrap">
-    <svg class="brush" viewBox="0 0 1000 14" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8 C180 3 380 12 600 6 S900 9 1000 5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" filter="url(#rough)"/></svg>
+    <svg class="brush" viewBox="0 0 1000 14" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8 C180 3 380 12 600 6 S900 9 1000 5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" filter="url(#brush)"/></svg>
     <div class="grid" style="margin-top:clamp(2.5rem,6vw,4.5rem)">
       <h2>About</h2>
       <div class="text">
@@ -144,7 +158,7 @@ footer{padding:2.5rem 0 3rem;color:var(--soft);font-size:.9rem}
 
 <section id="path">
   <div class="wrap">
-    <svg class="brush" viewBox="0 0 1000 14" preserveAspectRatio="none" aria-hidden="true"><path d="M0 6 C240 11 420 3 640 8 S920 5 1000 9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" filter="url(#rough)"/></svg>
+    <svg class="brush" viewBox="0 0 1000 14" preserveAspectRatio="none" aria-hidden="true"><path d="M0 6 C240 11 420 3 640 8 S920 5 1000 9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" filter="url(#brush)"/></svg>
     <div class="grid" style="margin-top:clamp(2.5rem,6vw,4.5rem)">
       <h2>Path</h2>
       <dl class="tl">
@@ -162,18 +176,53 @@ footer{padding:2.5rem 0 3rem;color:var(--soft);font-size:.9rem}
   </div>
 </section>
 
+<section id="badges">
+  <div class="wrap">
+    <svg class="brush" viewBox="0 0 1000 14" preserveAspectRatio="none" aria-hidden="true"><path d="M0 7 C160 12 400 3 620 8 S880 4 1000 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" filter="url(#brush)"/></svg>
+    <div class="grid" style="margin-top:clamp(2.5rem,6vw,4.5rem)">
+      <h2>Badges</h2>
+      <div>
+        <p class="text">Digital credentials issued on Bestr. Each one can be verified online.</p>
+        <!-- TODO: for each badge, swap the .disc placeholder for
+             <img src="assets/badges/NAME.png" alt="BADGE TITLE"> and set the real Bestr link.
+             Check the titles below match the ones on Bestr exactly. -->
+        <ul class="badges">
+          <li>
+            <div class="disc" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="5" filter="url(#seal)"/></svg></div>
+            <h3>BSc in Computer Engineering</h3>
+            <p>University of Padova</p>
+            <a class="lk" href="https://openbadges.bestr.it/public/assertions/z2Z8bnBmRzeG5A41VCHOQg" rel="noopener">Verify on Bestr</a>
+          </li>
+          <li>
+            <div class="disc" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="5" filter="url(#seal)"/></svg></div>
+            <h3>MSc in Cybersecurity</h3>
+            <p>University of Padova</p>
+            <a class="lk" href="https://openbadges.bestr.it/public/assertions/NJ-hzL5XQzG_avJ9uYuTKQ" rel="noopener">Verify on Bestr</a>
+          </li>
+          <li>
+            <div class="disc" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="5" filter="url(#seal)"/></svg></div>
+            <h3>CyberChallenge.IT</h3>
+            <p>Team Member</p>
+            <a class="lk" href="https://openbadges.bestr.it/public/assertions/Xgw8AeJKQ0-H1L3XMQDQAw" rel="noopener">Verify on Bestr</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="wrap">
-    <svg class="brush" viewBox="0 0 1000 14" preserveAspectRatio="none" aria-hidden="true"><path d="M0 9 C200 4 460 12 680 6 S930 8 1000 4" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" filter="url(#rough)"/></svg>
+    <svg class="brush" viewBox="0 0 1000 14" preserveAspectRatio="none" aria-hidden="true"><path d="M0 9 C200 4 460 12 680 6 S930 8 1000 4" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" filter="url(#brush)"/></svg>
     <div class="grid" style="margin-top:clamp(2.5rem,6vw,4.5rem)">
       <h2>Contact</h2>
       <div>
         <p class="text">If you work on security, machine learning, or both, I'm glad to hear from you.</p>
         <div class="contact">
           <!-- TODO: replace with your real email and LinkedIn URL -->
-          <a class="lk" href="mailto:CHANGE_ME@example.com">Email</a>
+          <a class="lk" href="mailto:tommasod27@gmail.com">Email</a>
           <a class="lk" href="https://github.com/Tommy270602">GitHub</a>
-          <a class="lk" href="https://www.linkedin.com/in/CHANGE_ME">LinkedIn</a>
+          <a class="lk" href="https://www.linkedin.com/in/tommaso-danieli-520700278/">LinkedIn</a>
         </div>
       </div>
     </div>
