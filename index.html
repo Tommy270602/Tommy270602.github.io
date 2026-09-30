@@ -3,9 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tommaso Danieli</title>
-<meta name="description" content="Tommaso Danieli: cybersecurity specialist and researcher working on continual learning for gait and human activity recognition.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%232b3b5c'/></svg>">
+<title>Tommaso Danieli | Security that keeps learning</title>
+<meta name="description" content="Tommaso Danieli, cybersecurity specialist at De'Longhi Group. Research on privacy and continual learning for gait and human activity recognition.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
@@ -54,13 +56,18 @@ h2{font-weight:500;font-size:1.65rem;line-height:1.2}
 dt{color:var(--soft);font-size:.95rem;padding-top:.2rem}
 dd strong{display:block;font-weight:500;font-size:1.2rem;line-height:1.35}
 dd span{color:var(--soft)}
+.tl dd p{margin-top:.55rem;max-width:56ch;font-size:1rem}
+.tk{grid-template-columns:9.5rem 1fr;gap:.9rem 1.5rem;margin-top:2.4rem}
+.tk dd{color:var(--ink)}
+.proj{list-style:none;display:grid;gap:2.2rem;max-width:60ch}
+.proj p{margin-top:.35rem}
 .contact{display:flex;flex-direction:column;align-items:flex-start;gap:.4rem;margin-top:1.6rem}
 .contact a{font-size:clamp(1.8rem,4.5vw,2.8rem);line-height:1.25}
 .badges{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:2.5rem 2rem;margin-top:2.2rem}
 .badges .disc,.badges img{display:block;width:5.5rem;height:5.5rem;margin-bottom:1rem;object-fit:contain}
 .badges .disc{color:var(--ink)}
 .badges .disc svg{width:100%;height:100%}
-.badges h3{font:500 1.15rem/1.35 'Shippori Mincho','Hiragino Mincho ProN','Yu Mincho',Georgia,serif}
+.badges h3,.proj h3{font:500 1.15rem/1.35 'Shippori Mincho','Hiragino Mincho ProN','Yu Mincho',Georgia,serif}
 .badges p{color:var(--soft);font-size:.95rem}
 .badges a{display:inline-block;margin-top:.6rem;font-size:.95rem}
 footer{padding:2.5rem 0 3rem;color:var(--soft);font-size:.9rem}
@@ -69,7 +76,7 @@ footer{padding:2.5rem 0 3rem;color:var(--soft);font-size:.9rem}
 @media(max-width:720px){
   .grid{grid-template-columns:1fr}
   nav .wrap{flex-wrap:wrap;gap:.75rem}
-  nav ul{font-size:.85rem;gap:.75rem}
+  nav ul{font-size:.85rem;gap:.25rem .75rem;flex-wrap:wrap}
   .seal{width:2.2rem;height:2.2rem}
   .hero .wrap{display:block}
   .enso{position:absolute;z-index:-1;top:50%;right:-38vw;width:125vw;transform:translateY(-50%) rotate(-18deg);opacity:.13}
@@ -93,9 +100,9 @@ footer{padding:2.5rem 0 3rem;color:var(--soft);font-size:.9rem}
   <div class="wrap">
     <a class="seal" href="#top" aria-label="Tommaso Danieli, home"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" style="fill:var(--indigo)" filter="url(#seal)"/><text x="20" y="26" text-anchor="middle" style="fill:var(--paper)" font-family="'Shippori Mincho',Georgia,serif" font-size="16" font-weight="500">TD</text></svg></a>
     <ul>
-      <li><a class="lk" href="#about">About</a></li>
       <li><a class="lk" href="#research">Research</a></li>
       <li><a class="lk" href="#path">Path</a></li>
+      <li><a class="lk" href="#projects">Projects</a></li>
       <li><a class="lk" href="#badges">Badges</a></li>
       <li><a class="lk" href="#contact">Contact</a></li>
     </ul>
@@ -134,10 +141,19 @@ footer{padding:2.5rem 0 3rem;color:var(--soft);font-size:.9rem}
     <svg class="brush" viewBox="0 0 1000 14" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8 C180 3 380 12 600 6 S900 9 1000 5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" filter="url(#brush)"/></svg>
     <div class="grid" style="margin-top:clamp(2.5rem,6vw,4.5rem)">
       <h2>About</h2>
-      <div class="text">
-        <p>I'm a cybersecurity specialist at De'Longhi Group in Treviso and a master's student at the University of Padova.</p>
-        <p>My work sits between two fields that rarely talk to each other: securing systems inside a large industrial company, and building machine learning models that keep learning from human movement.</p>
-        <!-- TODO: 1-2 sentences in your own voice (what drives you, what you're looking for) -->
+      <div>
+        <div class="text">
+          <p>I'm a cybersecurity specialist at De'Longhi Group in Treviso. I graduated in Cybersecurity at the University of Padova with 110/110 cum laude.</p>
+          <p>My work sits between two fields that rarely talk to each other: defending IT and OT networks in a large industrial company, and building machine learning models that keep learning from human movement.</p>
+        </div>
+        <dl class="tl tk">
+          <dt>Offensive security</dt><dd>Reverse engineering with IDA Pro, OWASP Top 10, Burp Suite, Pwntools</dd>
+          <dt>AI and deep learning</dt><dd>PyTorch, TensorFlow, LLMs, Transformers, adversarial ML</dd>
+          <dt>Security operations</dt><dd>Splunk, Qualys, Wireshark, Linux hardening, OT security</dd>
+          <dt>Development</dt><dd>Python, C/C++, Java, Docker, Git, SQL, Bash, Scikit-learn</dd>
+          <dt>Cryptography</dt><dd>RSA, AES, HMAC, elliptic curves, PyCryptodome</dd>
+          <dt>Languages</dt><dd>Italian (native), English (C1), German (B1)</dd>
+        </dl>
       </div>
     </div>
   </div>
@@ -148,9 +164,9 @@ footer{padding:2.5rem 0 3rem;color:var(--soft);font-size:.9rem}
     <div class="grid">
       <h2>Research</h2>
       <div class="text">
-        <p>My master's thesis, supervised by Simone Milani, is about continual learning for gait identification: a model that recognises new people over time without retraining from scratch and without forgetting the ones it already knows.</p>
-        <p>I also look at these models from a privacy angle, testing what an attacker could learn from them.</p>
-        <!-- TODO: thesis title, abstract, figure, links to paper / code / slides -->
+        <p>My master's thesis, "Privacy Attacks and Countermeasures in Biometric Gait Identification", was supervised by Simone Milani at the University of Padova. It asks what an attacker can learn from a gait recognition model, and how to defend against it.</p>
+        <p>My wider research is on continual learning: models that recognise new people over time without retraining from scratch and without forgetting the ones they already know.</p>
+        <!-- TODO: abstract, figure, links to paper / code / slides -->
       </div>
     </div>
   </div>
@@ -163,15 +179,37 @@ footer{padding:2.5rem 0 3rem;color:var(--soft);font-size:.9rem}
       <h2>Path</h2>
       <dl class="tl">
         <dt>Sep 2026 to now</dt>
-        <dd><strong>Junior Cybersecurity Specialist</strong><span>De'Longhi Group, Treviso</span></dd>
+        <dd><strong>Junior Cybersecurity Specialist</strong><span>De'Longhi Group, Treviso</span><p>Incident response and threat hunting on Splunk SIEM alerts. Vulnerability reporting automated with Qualys, with remediation coordinated across IT and OT networks. Ongoing NIS2 compliance, keeping security policies current for global manufacturing systems.</p></dd>
         <dt>Feb to Aug 2026</dt>
-        <dd><strong>Cybersecurity Intern</strong><span>De'Longhi Group, Treviso</span></dd>
+        <dd><strong>Cybersecurity Intern</strong><span>De'Longhi Group, Treviso</span><p>Supported vulnerability remediation and mapped security logs to detect threats earlier. Contributed to risk assessments that shaped foundational security policies, and to the first security controls for production-critical environments.</p></dd>
         <dt>2024 to 2026</dt>
-        <dd><strong>MSc in Cybersecurity</strong><span>University of Padova</span></dd>
+        <dd><strong>MSc in Cybersecurity</strong><span>University of Padova, 110/110 cum laude</span></dd>
         <dt>2021 to 2024</dt>
         <dd><strong>BSc in Computer Engineering</strong><span>University of Padova, 110/110</span></dd>
-        <!-- TODO: add what you actually did in each role, after I see your CV -->
       </dl>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <svg class="brush" viewBox="0 0 1000 14" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8 C220 3 430 11 650 5 S910 9 1000 6" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" filter="url(#brush)"/></svg>
+    <div class="grid" style="margin-top:clamp(2.5rem,6vw,4.5rem)">
+      <h2>Projects</h2>
+      <ul class="proj">
+        <li>
+          <h3>Streaming manipulation detection with adversarial AI</h3>
+          <p>An LSTM-based framework that detects streaming royalty fraud. A custom API scraper and synthetic adversarial datasets teach it to tell human listeners from advanced bots.</p>
+        </li>
+        <li>
+          <h3>Fake and automated account detection on Instagram</h3>
+          <p>A machine learning framework that identifies fake engagement on social networks.</p>
+        </li>
+        <li>
+          <h3>Capture The Flag competitions</h3>
+          <p>Challenges solved in web security, network forensics, binary exploitation and cryptography.</p>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
@@ -183,26 +221,26 @@ footer{padding:2.5rem 0 3rem;color:var(--soft);font-size:.9rem}
       <h2>Badges</h2>
       <div>
         <p class="text">Digital credentials issued on Bestr. Each one can be verified online.</p>
-        <!-- TODO: for each badge, swap the .disc placeholder for
-             <img src="assets/badges/NAME.png" alt="BADGE TITLE"> and set the real Bestr link.
-             Check the titles below match the ones on Bestr exactly. -->
         <ul class="badges">
           <li>
-            <div class="disc" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="5" filter="url(#seal)"/></svg></div>
+            <img src="https://openbadges.bestr.it/public/assertions/z2Z8bnBmRzeG5A41VCHOQg/image" alt="Bestr badge: BSc in Computer Engineering" width="88" height="88" loading="lazy">
             <h3>BSc in Computer Engineering</h3>
             <p>University of Padova</p>
+            <p>Issued July 2024</p>
             <a class="lk" href="https://openbadges.bestr.it/public/assertions/z2Z8bnBmRzeG5A41VCHOQg" rel="noopener">Verify on Bestr</a>
           </li>
           <li>
-            <div class="disc" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="5" filter="url(#seal)"/></svg></div>
+            <img src="https://openbadges.bestr.it/public/assertions/NJ-hzL5XQzG_avJ9uYuTKQ/image" alt="Bestr badge: MSc in Cybersecurity" width="88" height="88" loading="lazy">
             <h3>MSc in Cybersecurity</h3>
             <p>University of Padova</p>
+            <p>Issued September 2026</p>
             <a class="lk" href="https://openbadges.bestr.it/public/assertions/NJ-hzL5XQzG_avJ9uYuTKQ" rel="noopener">Verify on Bestr</a>
           </li>
           <li>
-            <div class="disc" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="5" filter="url(#seal)"/></svg></div>
+            <img src="https://openbadges.bestr.it/public/assertions/Xgw8AeJKQ0-H1L3XMQDQAw/image" alt="Bestr badge: CyberChallenge.IT" width="88" height="88" loading="lazy">
             <h3>CyberChallenge.IT</h3>
             <p>Team Member</p>
+            <p>Issued October 2025</p>
             <a class="lk" href="https://openbadges.bestr.it/public/assertions/Xgw8AeJKQ0-H1L3XMQDQAw" rel="noopener">Verify on Bestr</a>
           </li>
         </ul>
@@ -219,7 +257,6 @@ footer{padding:2.5rem 0 3rem;color:var(--soft);font-size:.9rem}
       <div>
         <p class="text">If you work on security, machine learning, or both, I'm glad to hear from you.</p>
         <div class="contact">
-          <!-- TODO: replace with your real email and LinkedIn URL -->
           <a class="lk" href="mailto:tommasod27@gmail.com">Email</a>
           <a class="lk" href="https://github.com/Tommy270602">GitHub</a>
           <a class="lk" href="https://www.linkedin.com/in/tommaso-danieli-520700278/">LinkedIn</a>
